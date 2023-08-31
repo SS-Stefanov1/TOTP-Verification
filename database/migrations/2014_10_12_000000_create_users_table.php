@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('label');
             $table->string('username');
-            $table->string('code')->unique();
+            $table->text('google2fa_secret')->nullable();
         });
     }
 

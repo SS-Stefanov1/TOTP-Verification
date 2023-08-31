@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/qr', [\App\Http\Controllers\QrController::class, 'index']);
+
+Auth::routes();
