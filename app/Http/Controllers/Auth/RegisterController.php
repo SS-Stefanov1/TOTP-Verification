@@ -107,7 +107,7 @@ class RegisterController extends Controller
     public function completeRegistration(Request $request)
     {
         // add the session data back to the request input
-        $request->merge(session('registration_data'));
+        $request->merge(['registration_date' => session('registration_data')]);
 
         // Call the default laravel authentication
         return $this->registration($request);
