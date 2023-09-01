@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/qr', [\App\Http\Controllers\QrController::class, 'index']);
+// Route::get('/qr', [\App\Http\Controllers\QrController::class, 'index']);
 
 Auth::routes();
 
