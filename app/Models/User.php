@@ -32,6 +32,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'google2fa_secret',
     ];
 
     /**
@@ -43,4 +44,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+}
+
+
+    /**
+     * @param  string  $value
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+
+ protected function google2faSecret(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) =>  decrypt($value),
+            set: fn ($value) =>  encrypt($value),
+        );
+    }
 }
