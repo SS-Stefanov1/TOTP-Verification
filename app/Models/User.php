@@ -45,13 +45,17 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function setGoogle2faSecretAttribute($value)
+    /**
+     * Interact with the user's first name.
+     *
+     * @param  string  $value
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    protected function google2faSecret(): Attribute
     {
-        $this->attributes['google2fa_secret'] = encrypt($value);
-    }
-
-    public function getGoogle2faSecretAttribute($value)
-    {
-        return decrypt($value);
+        return new Attribute(
+            get: fn($value) => decrypt($value),
+            set: fn($value) => encrypt($value),
+        );
     }
 }
