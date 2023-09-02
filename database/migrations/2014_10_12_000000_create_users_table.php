@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            //$table->string('label');
-            $table->text('google2fa_secret')->nullable();
-            $table->rememberToken();
-
             $table->string('password');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->text('google2fa_secret')->nullable();
             $table->timestamps();
+
+            $table->rememberToken();
+            $table->timestamp('email_verified_at')->nullable();
+
+            //$table->string('label');
         });
     }
 
