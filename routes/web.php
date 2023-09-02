@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\QrController;
+use App\Http\Controllers\QrCodeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +28,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/complete-registration', [App\Http\Controllers\Auth\RegisterController::class, 'completeRegistration'])->name('complete-registration');
 
-Route::get('qr-code', [QrController::class, 'index'])->name('QRCode.index');
+Route::get('qr-code', [QrCodeController::class, 'index'])->name('QrCode.index');
 
-Route::post('generate', [QrController::class, 'generate'])->name('QRCode.generate');
+Route::post('generate', [QrCodeController::class, 'generate'])->name('QrCode.generate');

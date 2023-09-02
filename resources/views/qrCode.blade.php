@@ -12,7 +12,7 @@
     <div class="container mt-5">
         <div class="row col-md-6">
             <h1>QR Code generate</h1>
-            <form method="post" action="{{ route('QRCode.generate') }}">
+            <form method="post" action="{{ route('QrCode.generate') }}">
                 @csrf
                 <div class="mb-3">
                     <label for="qr-message" class="form-label">Text</label>

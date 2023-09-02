@@ -10,7 +10,6 @@
                     <p>Set up your two factor authentication by scanning the barcode below.</p>
                     <div>
                         {!! QrCode::size(150)->generate('Still in progress :D'); !!}
-
                     </div>
                     <p style="margin-top: 12px;">You must set up your Google Authenticator app before continuing. </br><u>You will be unable to login otherwise!</u></p>
                     <div>
