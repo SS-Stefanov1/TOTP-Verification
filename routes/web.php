@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\QrCodeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,14 +19,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::post('/2fa', function () {
-    return redirect(route('home'));
-})->name('2fa');
+Route::middleware(['2fa'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('/2fa', function () {
+        return redirect(route('home'));
+    })->name('2fa');
+
+});
 
 Route::get('/complete-registration', [App\Http\Controllers\Auth\RegisterController::class, 'completeRegistration'])->name('complete-registration');
 
-Route::get('qr-code', [QrCodeController::class, 'index'])->name('QrCode.index');
-
-Route::post('generate', [QrCodeController::class, 'generate'])->name('QrCode.generate');
+//Route::get('qr-code', [QrCodeController::class, 'index'])->name('QrCode.index');
+//Route::post('generate', [QrCodeController::class, 'generate'])->name('QrCode.generate');
