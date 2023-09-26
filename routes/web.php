@@ -29,6 +29,3 @@ Route::middleware(['2fa'])->group(function () {
 });
 
 Route::get('/complete-registration', [App\Http\Controllers\Auth\RegisterController::class, 'completeRegistration'])->name('complete-registration');
-
-//Route::get('qr-code', [QrCodeController::class, 'index'])->name('QrCode.index');
-//Route::post('generate', [QrCodeController::class, 'generate'])->name('QrCode.generate');
